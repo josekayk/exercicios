@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas dos Alunos</title>
+    <style>
+        body { font: 12pt Arial; }
+        button { font-size: 12pt; padding: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Calcular Média dos Alunos</h1>
+    <button onclick="calcular()">Clique aqui para calcular a média</button>
+    <section id="res"> 
+        <p>Aqui vai aparecer o resultado... </p>
+    </section>
+    
+    <script>
+        function calcular() {
+            // Solicitar as notas dos dois alunos
+            let nota1 = window.prompt('Digite a primeira nota do aluno 1');
+            let nota2 = window.prompt('Digite a segunda nota do aluno 1');
+            let nota3 = window.prompt('Digite a primeira nota do aluno 2');
+            let nota4 = window.prompt('Digite a segunda nota do aluno 2');
+
+            // Verificar se as entradas são válidas
+            if (isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4) || 
+                nota1 === "" || nota2 === "" || nota3 === "" || nota4 === "") {
+                alert("Por favor, insira notas válidas!");
+                return;
+            }
+
+            // Converter as notas para números de ponto flutuante
+            nota1 = parseFloat(nota1);
+            nota2 = parseFloat(nota2);
+            nota3 = parseFloat(nota3);
+            nota4 = parseFloat(nota4);
+
+            // Calcular as médias
+            let mediaAluno1 = (nota1 + nota2) / 2;
+            let mediaAluno2 = (nota3 + nota4) / 2;
+
+            // Exibir os resultados
+            let res = document.querySelector('section#res');
+            res.innerHTML = `
+                <p>Aluno 1 - Nota 1: ${nota1}, Nota 2: ${nota2}. Média: ${mediaAluno1}</p>
+                <p>Aluno 2 - Nota 1: ${nota3}, Nota 2: ${nota4}. Média: ${mediaAluno2}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

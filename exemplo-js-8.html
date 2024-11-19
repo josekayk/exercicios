@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Isaac Newton</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <h1>Calculadora de Isaac Newton</h1>
+
+    <div class="container">
+        <label for="numero">Isaac Newton, insira um número:</label>
+        <input type="number" id="numero" placeholder="Digite um número" step="any">
+        <button onclick="analisarNumero()">Analisar</button>
+
+        <div id="resultados" class="resultado" style="display:none;">
+            <h3>Resultados:</h3>
+            <p><strong>Valor Absoluto:</strong> <span id="valorAbsoluto"></span></p>
+            <p><strong>Parte Inteira:</strong> <span id="parteInteira"></span></p>
+            <p><strong>Valor Inteiro Mais Próximo:</strong> <span id="valorInteiroProximo"></span></p>
+            <p><strong>Raiz Quadrada:</strong> <span id="raizQuadrada"></span></p>
+            <p><strong>Raiz Cúbica:</strong> <span id="raizCubica"></span></p>
+            <p><strong>Número Elevado ao Quadrado:</strong> <span id="elevadoQuadrado"></span></p>
+            <p><strong>Número Elevado ao Cubo:</strong> <span id="elevadoCubo"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function analisarNumero() {
+            // Pega o número digitado
+            const numero = parseFloat(document.getElementById('numero').value);
+
+            // Verifica se o número é válido
+            if (isNaN(numero)) {
+                alert("Por favor, insira um número válido.");
+                return;
+            }
+
+            // Realiza as operações
+            const valorAbsoluto = Math.abs(numero);
+            const parteInteira = Math.floor(numero);
+            const valorInteiroProximo = Math.round(numero);
+            const raizQuadrada = Math.sqrt(numero);
+            const raizCubica = Math.cbrt(numero);
+            const elevadoQuadrado = Math.pow(numero, 2);
+            const elevadoCubo = Math.pow(numero, 3);
+
+            // Exibe os resultados
+            document.getElementById('valorAbsoluto').innerText = valorAbsoluto;
+            document.getElementById('parteInteira').innerText = parteInteira;
+            document.getElementById('valorInteiroProximo').innerText = valorInteiroProximo;
+            document.getElementById('raizQuadrada').innerText = raizQuadrada;
+            document.getElementById('raizCubica').innerText = raizCubica;
+            document.getElementById('elevadoQuadrado').innerText = elevadoQuadrado;
+            document.getElementById('elevadoCubo').innerText = elevadoCubo;
+
+            // Torna o bloco de resultados visível
+            document.getElementById('resultados').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

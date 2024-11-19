@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma dos Números</title>
+    <style>
+        body { font: 12pt Arial; }
+        button { font-size: 12pt; padding: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com Números</h1>
+    <button onclick="calcular()">Clique aqui para calcular</button>
+    <section id="res"> 
+        <p>Aqui vai aparecer o resultado... </p>
+    </section>
+    
+    <script>
+        function calcular() {
+            
+            let numero1 = window.prompt('Digite o primeiro número');
+            let numero2 = window.prompt('Digite o segundo número');
+
+            
+            if (isNaN(numero1) || isNaN(numero2) || numero1 === "" || numero2 === "") {
+                alert("Por favor, insira dois números válidos!");
+                return;
+            }
+
+            
+            numero1 = parseFloat(numero1);
+            numero2 = parseFloat(numero2);
+
+            let res = document.querySelector('section#res');
+
+            
+            let soma = numero1 + numero2;
+            let dobro1 = numero1 * 2;
+            let metade1 = numero1 / 2;
+            let dobro2 = numero2 * 2;
+            let metade2 = numero2 / 2;
+
+            
+            res.innerHTML = `
+                <p>O primeiro número é: ${numero1}, seu dobro é: ${dobro1} e a metade é: ${metade1}</p>
+                <p>O segundo número é: ${numero2}, seu dobro é: ${dobro2} e a metade é: ${metade2}</p>
+                <p>A soma dos dois números é: ${soma}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
